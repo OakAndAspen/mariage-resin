@@ -1,0 +1,56 @@
+:root {
+    --resin-white: 255,255,255;
+    --resin-light: 223,220,220;
+    --resin-gray: 177,178,179;
+    --resin-dark: 51,51,51;
+    --resin-blue: 39,71,92;
+    --resin-blue-lighter: 50,80,100;
+}
+
+.t-white {
+    color: rgb(var(--resin-white));
+}
+
+.b-white {
+    background-color: rgb(var(--resin-white));
+}
+
+.t-light {
+    color: rgb(var(--resin-light));
+}
+
+.b-light {
+    background-color: rgb(var(--resin-light));
+}
+
+.t-gray {
+    color: rgb(var(--resin-gray));
+}
+
+.b-gray {
+    background-color: rgb(var(--resin-gray));
+}
+
+.t-dark {
+    color: rgb(var(--resin-dark));
+}
+
+.b-dark {
+    background-color: rgb(var(--resin-dark));
+}
+
+.t-blue {
+    color: rgb(var(--resin-blue));
+}
+
+.b-blue {
+    background-color: rgb(var(--resin-blue));
+}
+
+.t-blue-lighter {
+    color: rgb(var(--resin-blue-lighter));
+}
+
+.b-blue-lighter {
+    background-color: rgb(var(--resin-blue-lighter));
+}

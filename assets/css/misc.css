@@ -1,2 +1,19 @@
-.page-enter-active, .page-leave-active { transition: opacity .2s; }
-.page-enter, .page-leave-active { opacity: 0; }
+.page-enter-active, .page-leave-active {
+    transition: opacity .2s;
+}
+
+.page-enter, .page-leave-active {
+    opacity: 0;
+}
+
+.btn {
+    color: rgb(var(--resin-white));
+    background-color: rgb(var(--resin-blue));
+    font-variant: all-small-caps;
+    padding: 8px 15px;
+}
+
+.btn:hover {
+    color: rgb(var(--resin-white));
+    background-color: rgb(var(--resin-blue-lighter));
+}

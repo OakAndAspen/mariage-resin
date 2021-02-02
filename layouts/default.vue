@@ -1,8 +1,7 @@
 <template>
-    <div id="DefaultLayout">
-        <the-header/>
-        <the-menu/>
-        <main class="container my-4 py-4">
+    <div id="TheDefaultLayout">
+        <the-desktop-menu/>
+        <main>
             <Nuxt/>
         </main>
         <the-footer/>
@@ -10,11 +9,8 @@
 </template>
 
 <script>
-import TheFooter from "@/components/layout/TheFooter.vue";
-import TheHeader from "@/components/layout/TheHeader.vue";
-import TheMenu from "@/components/layout/TheMenu.vue";
 
 export default {
-    components: {TheMenu, TheFooter, TheHeader}
+    name: "TheDefaultLayout"
 }
 </script>

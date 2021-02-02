@@ -1,14 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;600&display=swap');
 
 body {
-  font-family: "Titillium Web", sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.1em;
+    letter-spacing: 0.1em;
 }
 
 .font-display {
-  font-family: "Caveat", cursive;
+    font-family: "Caveat", cursive;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Caveat", cursive;
+    color: rgb(var(--resin-blue));
+}
+
+h1 span {
+    border-bottom: 2px solid rgb(var(--resin-blue));
 }
 
 .small-caps {
     font-variant: all-small-caps;
 }
+
+.display-1 {
+    font-size: 3rem;
+}
+
+.display-2 {
+    font-size: 2.5rem;
+}
+
+.display-3 {
+    font-size: 2rem;
+}
+
+.display-4 {
+    font-size: 1.5rem;
+}
+
