@@ -17,3 +17,7 @@
     color: rgb(var(--resin-white));
     background-color: rgb(var(--resin-blue-lighter));
 }
+
+.pointer {
+    cursor: pointer;
+}

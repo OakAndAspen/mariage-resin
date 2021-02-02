@@ -14,16 +14,12 @@ export default {
     css: [
         '@/assets/css/app.css'
     ],
-    plugins: [
-        '@/plugins/global-components.js'
-    ],
     components: true,
     buildModules: [
         '@nuxtjs/moment'
     ],
     modules: [
-        'bootstrap-vue/nuxt',
-        '@nuxt/content'
+        'bootstrap-vue/nuxt'
     ],
     build: {},
     transition: "page"
