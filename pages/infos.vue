@@ -11,9 +11,9 @@
         <!-- ----- Infos A-Z ----- -->
         <section-wrapper>
             <ul class="list-group">
-                <li v-for="(e, i) of infos.sort((a,b) => a.title.localeCompare(b.title))"
-                    class="list-group-item">
-                    <h3 class="small-caps pointer" @click="index = i;">
+                <li v-for="(e, i) in sortedInfo"
+                    class="list-group-item" :key="i">
+                    <h3 class="small-caps pointer" @click="openSection(i)">
                         {{ e.title }}
                     </h3>
                     <p v-if="i === index">{{ e.content }}</p>
@@ -46,8 +46,22 @@ export default {
                 {
                     title: "Cadeaux",
                     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
+                },
+                {
+                    title: "Dress code",
+                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 }
             ]
+        }
+    },
+    methods: {
+        openSection(i) {
+            this.index = i;
+        }
+    },
+    computed: {
+        sortedInfo() {
+            return this.infos.sort((a,b) => a.title.localeCompare(b.title));
         }
     }
 }
