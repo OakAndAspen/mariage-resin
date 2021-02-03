@@ -19,7 +19,7 @@
             </h1>
             <div class="row" v-for="(p, i) of program">
                 <div :class="'col-12 col-md-6'+ (i % 2 === 0 ? ' order-md-1': ' order-md-2')">
-                    <img :src="require(`~/assets/img/${p.image}`)"
+                    <img :src="require('~/assets/img/' + p.image)"
                          :alt="p.title" class="img-fluid my-4"/>
                 </div>
                 <div
@@ -35,7 +35,7 @@
         </section-wrapper>
 
         <!-- ----- Infos ----- -->
-        <div class="b-blue py-4">
+        <div class="b-blue">
             <section-wrapper>
                 <div class="row t-white">
                     <content-wrapper v-for="link of links"
@@ -58,21 +58,21 @@ export default {
         return {
             program: [
                 {
-                    image: "ph-square.png",
+                    image: "cut/program-8.jpg",
                     title: "Cérémonie",
                     location: "Eglise de St-Saphorin",
                     time: "14h00 - 16h00",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 },
                 {
-                    image: "ph-square.png",
+                    image: "cut/program-6.jpg",
                     title: "Apéro",
                     location: "Eglise de St-Saphorin",
                     time: "14h00 - 16h00",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 },
                 {
-                    image: "ph-square.png",
+                    image: "cut/program-1.jpg",
                     title: "Souper",
                     location: "Eglise de St-Saphorin",
                     time: "14h00 - 16h00",
