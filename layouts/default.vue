@@ -1,5 +1,5 @@
 <template>
-    <div id="TheDefaultLayout">
+    <div id="TheDefaultLayout" class="b-white">
         <the-desktop-menu/>
         <main>
             <Nuxt/>
