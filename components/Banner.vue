@@ -37,7 +37,6 @@ export default {
     background-image: var(--banner-bg);
     background-position: center center;
     background-size: cover;
-    margin-bottom: 100px;
     height: var(--banner-height);
 }
 

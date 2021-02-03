@@ -11,6 +11,7 @@
     background-color: rgb(var(--resin-blue));
     font-variant: all-small-caps;
     padding: 8px 15px;
+    letter-spacing: 0.1em;
 }
 
 .btn:hover {

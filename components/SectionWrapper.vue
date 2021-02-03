@@ -1,5 +1,5 @@
 <template>
-    <div class="container my-4 py-4">
+    <div class="SectionWrapper container">
         <div class="row">
             <div class="col-12 col-md-10 mx-auto">
                 <slot/>
@@ -15,3 +15,10 @@ export default {
 };
 
 </script>
+
+<style>
+    .SectionWrapper {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+</style>
