@@ -14,7 +14,12 @@
     letter-spacing: 0.1em;
 }
 
-.btn:hover {
+.btn[disabled] {
+    color: rgb(var(--resin-dark));
+    background-color: rgb(var(--resin-light));
+}
+
+.btn:not([disabled]):hover {
     color: rgb(var(--resin-white));
     background-color: rgb(var(--resin-blue-lighter));
 }
