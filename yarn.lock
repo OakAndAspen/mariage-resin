@@ -7671,6 +7671,11 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
+siema@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/siema/-/siema-1.5.1.tgz#eff312b77e8340fa4d81d5d053ebbeb9113ff888"
+  integrity sha1-7/MSt36DQPpNgdXQU+u+uRE/+Ig=
+
 signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
@@ -8657,6 +8662,13 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue2-siema@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/vue2-siema/-/vue2-siema-0.2.2.tgz#67376c7183707229adacc4d3b5083fdcc90b0473"
+  integrity sha512-fxEwIjCqZw7clC+eUlyCnh5whPswxNW4D2a8GjK95/H0VyX90lYy40+5Wv21J2/K6UyIBs12yv+TRzMOz3IL0g==
+  dependencies:
+    siema "^1.5.1"
 
 vue@^2.6.12:
   version "2.6.12"

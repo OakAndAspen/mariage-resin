@@ -21,6 +21,12 @@ export default {
     modules: [
         'bootstrap-vue/nuxt'
     ],
+    plugins: [
+        {
+            src: '~/plugins/vue2-siema.js',
+            ssr: false
+        }
+    ],
     build: {},
     transition: "page"
 }
