@@ -1,7 +1,7 @@
 <template>
     <nav id="TheDesktopMenu" class="py-4 position-absolute w-100 t-white">
         <div class="container d-flex justify-content-between">
-            <span class="font-display display-3 m-0">Matthieu & Laurène</span>
+            <span class="font-display display-3 m-0">Laurène & Matthieu</span>
             <ul class="nav pt-2">
                 <li class="nav-item" v-for="item of items">
                     <nuxt-link class="nav-link t-white" :to="item.url">

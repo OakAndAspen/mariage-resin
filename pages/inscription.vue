@@ -21,7 +21,7 @@
                     </button>
                     <div v-if="accessLevel === 0 && codeWasChecked"
                          class="alert alert-danger my-4 text-center">
-                        Ce code n'est pas valide.
+                        J'aurais pas fait ça comme ça...
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                                     </td>
                                 </tr>
                                 <tr v-if="accessLevel === 2">
-                                    <td>Nuit (15.- / personne)</td>
+                                    <td>Nuit (10.- / personne)</td>
                                     <td>
                                         <input type="number" class="form-control text-center"
                                                v-model="form.participants.dodo"/>
@@ -104,11 +104,15 @@
                             <h3 class="my-4">Aide</h3>
                             <div class="form-inline my-2">
                                 <input type="checkbox" class="form-control mr-2" v-model="form.help.before"/>
-                                Je peux aider à l'installation (jeudi 4, 8h-10h)
+                                Je peux aider à l'installation (vendredi 24 dès 18h - Broc)
                             </div>
                             <div class="form-inline my-2">
                                 <input type="checkbox" class="form-control mr-2" v-model="form.help.after"/>
-                                Je peux aider au rangement (vendredi 5, 8h-10h)
+                                Je peux aider au rangement de l'apéro (samedi 25 dès 17h - St-Saphorin )
+                            </div>
+                            <div class="form-inline my-2">
+                                <input type="checkbox" class="form-control mr-2" v-model="form.help.party"/>
+                                Je peux aider au rangement de la colonie (dimanche 26 dès 12h - Broc )
                             </div>
                         </section>
 
@@ -128,6 +132,7 @@
 
 <script>
 
+// TODO: ajouter un champ commentaires (par exemple allergies)
 
 export default {
     name: "InscriptionPage",
@@ -151,7 +156,8 @@ export default {
                 },
                 help: {
                     before: false,
-                    after: false
+                    after: false,
+                    party: false
                 }
             }
         }

@@ -11,8 +11,18 @@
             </div>
         </banner>
 
-        <!-- ----- Programme ----- -->
+        <!-- ----- Photo ----- -->
         <section-wrapper>
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-6 mx-auto">
+                    <img src="~/assets/img/originals/lesamoureux.jpg"
+                         class="img-fluid" style="box-shadow: 0 0 10px;"/>
+                </div>
+            </div>
+        </section-wrapper>
+
+        <!-- ----- Programme ----- -->
+        <section-wrapper class="pt-0">
 
             <h1 class="text-center mb-4">
                 <span>Programme</span>
@@ -41,7 +51,7 @@
                     <content-wrapper v-for="link of links"
                                      :img-square="'cut/'+link.image"
                                      :link="link.url"
-                                     veil="rgba(39,71,92,0.5)">
+                                     veil="rgba(51,51,51,0.3)">
                         <p class="display-3 font-display">{{ link.text }}</p>
                     </content-wrapper>
                 </div>
@@ -52,8 +62,11 @@
 
 <script>
 
+import SectionWrapper from "@/components/SectionWrapper.vue";
+
 export default {
     name: "HomePage",
+    components: {SectionWrapper},
     data() {
         return {
             program: [
@@ -61,21 +74,21 @@ export default {
                     image: "cut/program-8.jpg",
                     title: "Cérémonie",
                     location: "Eglise de St-Saphorin",
-                    time: "14h00 - 16h00",
+                    time: "14h00 - 15h00",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 },
                 {
                     image: "cut/program-6.jpg",
                     title: "Apéro",
-                    location: "Eglise de St-Saphorin",
-                    time: "14h00 - 16h00",
+                    location: "Jardin de la cure, St-Saphorin",
+                    time: "15h00 - 17h00",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 },
                 {
                     image: "cut/program-1.jpg",
-                    title: "Souper",
-                    location: "Eglise de St-Saphorin",
-                    time: "14h00 - 16h00",
+                    title: "Soirée",
+                    location: "Colonie des Eterpaz - Broc",
+                    time: "Dès 18h00",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
                 }
             ],
@@ -88,11 +101,11 @@ export default {
                 {
                     url: "infos",
                     text: "Informations pratiques",
-                    image: "infos-1.jpg"
+                    image: "infos-3.jpg"
                 },
                 {
                     url: "voyage",
-                    text: "Offrez-nous notre voyage de noce!",
+                    text: "Aidez-nous à financer notre voyage de noce!",
                     image: "voyage-2.jpg"
                 },
                 {

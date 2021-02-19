@@ -46,6 +46,8 @@
 
 <script>
 
+// TODO: Quand on choisit un cadeau, une fenêtre s'ouvre qui demande le nom et un petit message --> merci!
+
 export default {
     name: "VoyagePage",
     data() {

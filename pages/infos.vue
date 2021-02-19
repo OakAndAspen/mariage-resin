@@ -2,7 +2,7 @@
     <div id="InfosPage">
 
         <!-- ----- Bannière ----- -->
-        <banner background="cut/infos-1.jpg" veil="rgba(0,0,0,0.2)">
+        <banner background="originals/infos-3.jpg" veil="rgba(0,0,0,0.2)">
             <div class="text-center container">
                 <p class="font-display display-1 t-white">Toutes les infos</p>
             </div>
