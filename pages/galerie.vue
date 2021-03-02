@@ -24,7 +24,7 @@
 
             <hr style="margin: 60px 0;"/>
 
-            <carousel>
+            <carousel code="galerie">
                 <img v-for="index of albums[activeAlbum].amount"
                      :src="getPhotoSrc(albums[activeAlbum].code, index)"
                      :alt="albums[activeAlbum].title + ' - N°' + index"

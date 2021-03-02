@@ -27,7 +27,16 @@ export default {
         '@nuxtjs/moment'
     ],
     modules: [
-        'bootstrap-vue/nuxt'
+        'bootstrap-vue/nuxt',
+        ['nuxt-fontawesome', {
+            component: 'fa',
+            imports: [
+                {
+                    set: '@fortawesome/free-solid-svg-icons',
+                    icons: ['faBars']
+                }
+            ]
+        }]
     ],
     plugins: [
         {

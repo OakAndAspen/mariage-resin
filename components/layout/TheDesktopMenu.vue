@@ -1,9 +1,10 @@
 <template>
     <nav id="TheDesktopMenu" class="py-4 position-absolute w-100 t-white">
         <div class="container d-flex justify-content-between">
-            <span class="font-display display-3 m-0">Laurène & Matthieu</span>
-            <ul class="nav pt-2">
-                <li class="nav-item" v-for="item of items">
+            <h1 class="font-display display-3 m-0 t-white">Laurène & Matthieu</h1>
+            <fa icon="bars" class="display-3 d-lg-none" @click="$emit('toggleNav')"/>
+            <ul class="nav pt-2 d-none d-lg-flex">
+                <li class="nav-item" v-for="item of menu">
                     <nuxt-link class="nav-link t-white" :to="item.url">
                         {{ item.label }}
                     </nuxt-link>
@@ -17,32 +18,7 @@
 
 export default {
     name: "TheDesktopMenu",
-    data() {
-        return {
-            items: [
-                {
-                    label: "Accueil",
-                    url: "/"
-                },
-                {
-                    label: "Inscription",
-                    url: "/inscription"
-                },
-                {
-                    label: "Infos",
-                    url: "/infos"
-                },
-                {
-                    label: "Voyage",
-                    url: "/voyage"
-                },
-                {
-                    label: "Galerie",
-                    url: "/galerie"
-                }
-            ]
-        }
-    }
+    props: ['menu']
 }
 
 </script>
