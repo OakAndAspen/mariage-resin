@@ -36,7 +36,7 @@
 
                         <section>
                             <h3 class="my-4">Votre nom</h3>
-                            <input id="FormName" type="text" class="form-control" v-model="form.name"/>
+                            <input id="FormName" type="text" class="form-control" v-model="form.nom"/>
                         </section>
 
                         <hr/>
@@ -83,17 +83,17 @@
                             <h3 class="my-4">Covoiturage</h3>
                             <div class="form-inline my-2">
                                 Je pars de
-                                <input type="text" class="form-control mx-2" v-model="form.carpool.from"/>
+                                <input type="text" class="form-control mx-2" v-model="form.covoit.de"/>
                                 .
                             </div>
                             <div class="form-inline my-2">
                                 J'ai une voiture avec
-                                <input type="number" class="form-control mx-2" v-model="form.carpool.provides"/>
+                                <input type="number" class="form-control mx-2" v-model="form.covoit.offre"/>
                                 places disponibles.
                             </div>
                             <div class="form-inline my-2">
                                 Je cherche
-                                <input type="number" class="form-control mx-2" v-model="form.carpool.needs"/>
+                                <input type="number" class="form-control mx-2" v-model="form.covoit.cherche"/>
                                 places dans une voiture.
                             </div>
                         </section>
@@ -103,20 +103,22 @@
                         <section v-if="accessLevel === 2">
                             <h3 class="my-4">Aide</h3>
                             <div class="form-inline my-2">
-                                <input type="checkbox" class="form-control mr-2" v-model="form.help.before"/>
+                                <input type="checkbox" class="form-control mr-2" v-model="form.aide.install"/>
                                 Je peux aider à l'installation (vendredi 24 dès 18h - Broc)
                             </div>
                             <div class="form-inline my-2">
-                                <input type="checkbox" class="form-control mr-2" v-model="form.help.after"/>
+                                <input type="checkbox" class="form-control mr-2" v-model="form.aide.apero"/>
                                 Je peux aider au rangement de l'apéro (samedi 25 dès 17h - St-Saphorin )
                             </div>
                             <div class="form-inline my-2">
-                                <input type="checkbox" class="form-control mr-2" v-model="form.help.party"/>
+                                <input type="checkbox" class="form-control mr-2" v-model="form.aide.colonie"/>
                                 Je peux aider au rangement de la colonie (dimanche 26 dès 12h - Broc )
                             </div>
                         </section>
 
                         <section>
+                            <textarea v-model="form.commentaire" placeholder="Remarques, allergies, etc."
+                             class="form-control"/>
                             <button class="btn btn-lg w-100 my-4" type="button" @click="register">
                                 Enregistrer l'inscription
                             </button>
@@ -132,8 +134,6 @@
 
 <script>
 
-// TODO: ajouter un champ commentaires (par exemple allergies)
-
 export default {
     name: "InscriptionPage",
     data() {
@@ -142,23 +142,25 @@ export default {
             accessLevel: 0,
             codeWasChecked: false,
             form: {
-                name: '',
+                secretKey: "nX?3Wc9Kfr=@AjFe",
+                nom: '',
                 participants: {
                     ceremonie: 0,
                     apero: 0,
                     souper: 0,
                     dodo: 0
                 },
-                carpool: {
-                    from: '',
-                    provides: 0,
-                    needs: 0
+                covoit: {
+                    de: '',
+                    offre: 0,
+                    cherche: 0
                 },
-                help: {
-                    before: false,
-                    after: false,
-                    party: false
-                }
+                aide: {
+                    install: false,
+                    apero: false,
+                    colonie: false
+                },
+                commentaire: ""
             }
         }
     },
@@ -178,7 +180,17 @@ export default {
             this.codeWasChecked = true;
         },
         register() {
-            console.log(this.form);
+            fetch('http://localhost/mariage-resin-backend/inscription.php', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'post',
+                body: JSON.stringify(this.form),
+                mode: 'no-cors'
+            }).then(res => {
+                console.log(res);
+            });
         }
     }
 }
