@@ -179,18 +179,10 @@ export default {
             }
             this.codeWasChecked = true;
         },
-        register() {
-            fetch('http://localhost/mariage-resin-backend/inscription.php', {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'post',
-                body: JSON.stringify(this.form),
-                mode: 'no-cors'
-            }).then(res => {
-                console.log(res);
-            });
+        async register() {
+            let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=nX?3Wc9Kfr=@AjFe';
+            const res = await this.$http.post(url, this.form);
+            console.log(res);
         }
     }
 }

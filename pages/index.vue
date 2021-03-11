@@ -48,7 +48,7 @@
         <div class="b-blue">
             <section-wrapper>
                 <div class="row t-white">
-                    <content-wrapper v-for="link of links"
+                    <content-wrapper v-for="link of links" :key="link.url"
                                      :img-square="'cut/'+link.image"
                                      :link="link.url"
                                      veil="rgba(51,51,51,0.3)">
