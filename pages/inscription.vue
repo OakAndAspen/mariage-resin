@@ -118,10 +118,11 @@
 
                         <section>
                             <textarea v-model="form.commentaire" placeholder="Remarques, allergies, etc."
-                             class="form-control"/>
+                                      class="form-control"/>
                             <button class="btn btn-lg w-100 my-4" type="button" @click="register">
                                 Enregistrer l'inscription
                             </button>
+                            <div class="alert alert-success" v-if="state === 1">Merci pour votre inscription!</div>
                         </section>
 
                     </form>
@@ -134,12 +135,15 @@
 
 <script>
 
+import SectionWrapper from "@/components/SectionWrapper.vue";
 export default {
     name: "InscriptionPage",
+    components: {SectionWrapper},
     data() {
         return {
             codeInput: '',
             accessLevel: 0,
+            state: 0,
             codeWasChecked: false,
             form: {
                 secretKey: "nX?3Wc9Kfr=@AjFe",
@@ -180,9 +184,13 @@ export default {
             this.codeWasChecked = true;
         },
         async register() {
-            let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=nX?3Wc9Kfr=@AjFe';
-            const res = await this.$http.post(url, this.form);
-            console.log(res);
+            if (this.form.nom) {
+                let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=nX?3Wc9Kfr=@AjFe';
+                const res = await this.$http.post(url, this.form);
+                if(res.status === 200) {
+                    this.state = 1;
+                }
+            }
         }
     }
 }
