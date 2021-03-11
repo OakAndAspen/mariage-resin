@@ -33,7 +33,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ g.titre }}</h5>
                                     <p class="card-text"><small class="text-muted">{{ g.prix }} CHF</small></p>
-                                    <button v-if="!g.offertPar" class="btn">Offrir</button>
+                                    <nuxt-link v-if="!g.offertPar" class="btn"
+                                               :to="{ name: 'voyage-id', params: { id: g.id }}">
+                                        Offrir
+                                    </nuxt-link>
                                     <button v-else class="btn" disabled>Merci !</button>
                                 </div>
                             </div>
@@ -65,11 +68,12 @@ export default {
     computed: {
         sortedGifts() {
             return this.gifts.sort((a, b) => {
-                return (a.available === b.available) ? 0 : a.available ? -1 : 1;
+                let aIsAvailable = a.offertPar === null;
+                let bIsAvailable = b.offertPar === null;
+                return (aIsAvailable === bIsAvailable) ? 0 : aIsAvailable ? -1 : 1;
             });
         }
     }
-
 }
 
 </script>
