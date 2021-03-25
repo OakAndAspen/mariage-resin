@@ -16,7 +16,9 @@
                     <h3 class="small-caps pointer" @click="openSection(i)">
                         {{ e.title }}
                     </h3>
-                    <p v-if="i === index">{{ e.content }}</p>
+                    <img :src="require('~/assets/img/info/'+e.image)" alt="Plan"
+                    v-if="i === index && e.image" class="img-fluid my-4">
+                    <nuxt-content v-if="i === index" :document="e" class="mt-4"/>
                 </li>
             </ul>
         </section-wrapper>
@@ -30,28 +32,14 @@ export default {
     data() {
         return {
             index: 0,
-            infos: [
-                {
-                    title: "Parking",
-                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
-                },
-                {
-                    title: "Chiens",
-                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
-                },
-                {
-                    title: "Hébergement",
-                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
-                },
-                {
-                    title: "Cadeaux",
-                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
-                },
-                {
-                    title: "Dress code",
-                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
-                }
-            ]
+            infos: []
+        }
+    },
+    async asyncData({$content}) {
+        const infos = await $content('info').fetch();
+        console.log(infos);
+        return {
+            infos: infos
         }
     },
     methods: {

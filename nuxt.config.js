@@ -29,6 +29,7 @@ export default {
     modules: [
         'bootstrap-vue/nuxt',
         '@nuxt/http',
+        '@nuxt/content',
         ['nuxt-fontawesome', {
             component: 'fa',
             imports: [
