@@ -2,8 +2,11 @@
     <div id="GaleriePage">
 
         <!-- ----- Modal ----- -->
-        <div v-if="activeAlbum" id="Modal">
+        <div v-if="activeAlbum !== null" id="Modal">
             <div id="ModalVeil" class="my-4">
+                <fa icon="times" class="display-4 text-white m-4"
+                    @click="activeAlbum = null"
+                    style="float: right;"/>
                 <div class="row">
                     <div class="col-10 col-md-8 mx-auto">
                         <VueSlickCarousel v-bind="mainSlider">
@@ -81,7 +84,7 @@ export default {
                     amount: 5
                 }
             ],
-            activeAlbum: 0
+            activeAlbum: null
         }
     },
     methods: {
