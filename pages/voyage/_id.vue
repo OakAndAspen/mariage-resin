@@ -32,7 +32,8 @@
                 </div>
                 <div v-if="state === 1" class="text-center">
                     <h1 class="text-center mb-4">Un grand merci!</h1>
-                    <p>Vous pouvez nous offrir ce cadeau en faisant un versement à l'IBAN CH005 00000 00000 00000 00000 0</p>
+                    <p>Vous pouvez nous offrir ce cadeau en faisant un versement sur cette IBAN:</p>
+                    <p>CH005 00000 00000 00000 00000 0</p>
                 </div>
         </section-wrapper>
     </div>
@@ -53,7 +54,7 @@ export default {
         }
     },
     async asyncData({$http}) {
-        let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=nX?3Wc9Kfr=@AjFe';
+        let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=aLZ5bmeu3PpwQv5n';
         const res = await $http.get(url);
         const data = await res.json();
         return {
@@ -69,7 +70,7 @@ export default {
     },
     methods: {
         async registerGift() {
-            let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=nX?3Wc9Kfr=@AjFe';
+            let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=aLZ5bmeu3PpwQv5n';
             let data = {
                 id: this.$route.params.id,
                 offertPar: this.form.name,
@@ -77,7 +78,8 @@ export default {
             };
             if(data.id && data.offertPar) {
                 const res = await this.$http.post(url, data);
-                if(res.statusCode === 200) {
+                console.log(res);
+                if(res.status === 200) {
                     this.state = 1;
                 }
             }

@@ -58,7 +58,7 @@ export default {
         }
     },
     async asyncData({$http}) {
-        let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=nX?3Wc9Kfr=@AjFe';
+        let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=aLZ5bmeu3PpwQv5n';
         const res = await $http.get(url);
         const data = await res.json();
         return {

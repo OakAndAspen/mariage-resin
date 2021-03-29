@@ -185,7 +185,7 @@ export default {
         },
         async register() {
             if (this.form.nom) {
-                let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=nX?3Wc9Kfr=@AjFe';
+                let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=aLZ5bmeu3PpwQv5n';
                 const res = await this.$http.post(url, this.form);
                 if(res.status === 200) {
                     this.state = 1;
