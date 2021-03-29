@@ -1,6 +1,23 @@
 <template>
     <div id="GaleriePage">
 
+        <!-- ----- Modal ----- -->
+        <div v-if="activeAlbum" id="Modal">
+            <div id="ModalVeil" class="my-4">
+                <div class="row">
+                    <div class="col-10 col-md-8 mx-auto">
+                        <VueSlickCarousel v-bind="mainSlider">
+                            <div v-for="index of albums[activeAlbum].amount">
+                                <img :src="getPhotoSrc(albums[activeAlbum].code, index)"
+                                     :alt="albums[activeAlbum].title + ' - N°' + index"
+                                     class="mx-auto"/>
+                            </div>
+                        </VueSlickCarousel>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ----- Bannière ----- -->
         <banner background="originals/galerie-2.jpg" veil="rgba(0,0,0,0.2)">
             <div class="text-center container">
@@ -21,43 +38,32 @@
                     </div>
                 </div>
             </div>
-
-            <hr style="margin: 60px 0;"/>
-
-            <carousel code="galerie">
-                <img v-for="index of albums[activeAlbum].amount"
-                     :src="getPhotoSrc(albums[activeAlbum].code, index)"
-                     :alt="albums[activeAlbum].title + ' - N°' + index"
-                     class="img-fluid"/>
-            </carousel>
         </section-wrapper>
-
-        <!-- ----- Modal ----- -->
-        <div v-if="activePhoto" class="modal p-4">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{ albums[activeAlbum].title }}</h5>
-                        <button type="button" class="close" @click="showPhoto(0)">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <img :src="getPhotoSrc(albums[activeAlbum].code, activePhoto)"
-                             class="img-fluid"/>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
 
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+
 export default {
     name: "GaleriePage",
+    components: {VueSlickCarousel},
+    mounted() {
+        this.height = window.innerHeight;
+    },
     data() {
         return {
+            height: "700",
+            mainSlider: {
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                lazyLoad: "progressive"
+            },
             albums: [
                 {
                     title: "Cérémonie",
@@ -75,17 +81,12 @@ export default {
                     amount: 5
                 }
             ],
-            activeAlbum: 0,
-            activePhoto: 0
+            activeAlbum: 0
         }
     },
     methods: {
         showAlbum(id) {
             this.activeAlbum = id;
-        },
-        showPhoto(index) {
-            console.log("SHOW PHOTO", index);
-            this.activePhoto = index;
         },
         getPhotoSrc(code, index) {
             let number = ('000' + index).substr(-3);
@@ -98,14 +99,23 @@ export default {
 
 <style>
 
-#GaleriePage .modal {
+#GaleriePage #Modal {
+    position: absolute;
     display: block;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+#GaleriePage #Modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-#GaleriePage .modal-dialog {
-    width: 100%;
-    max-width: 100%;
+#GaleriePage #Modal .slick-slider img {
+    max-height: 500px;
 }
 
 </style>
