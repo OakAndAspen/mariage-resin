@@ -47,5 +47,9 @@ export default {
         }
     ],
     build: {},
-    transition: "page"
+    transition: "page",
+    env: {
+        backendUrl: 'https://api.mariage-resin.ch',
+        secretKey: 'aLZ5bmeu3PpwQv5n'
+    }
 }

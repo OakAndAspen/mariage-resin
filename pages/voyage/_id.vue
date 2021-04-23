@@ -63,9 +63,9 @@ export default {
             }
         }
     },
-    async asyncData({$http}) {
-        let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=aLZ5bmeu3PpwQv5n';
-        const res = await $http.get(url);
+    async asyncData(context) {
+        let url = context.env.backendUrl + "/voyage.php?secretKey=" + context.env.secretKey;
+        const res = await context.$http.get(url);
         const data = await res.json();
         return {
             gifts: data
@@ -79,8 +79,8 @@ export default {
         }
     },
     methods: {
-        async registerGift() {
-            let url = 'http://localhost/mariage-resin-backend/voyage.php?secretKey=aLZ5bmeu3PpwQv5n';
+        async registerGift(context) {
+            let url = context.env.backendUrl + "/voyage.php?secretKey=" + context.env.secretKey;
             let data = {
                 id: this.$route.params.id,
                 offertPar: this.form.name,

@@ -146,7 +146,6 @@ export default {
             state: 0,
             codeWasChecked: false,
             form: {
-                secretKey: "nX?3Wc9Kfr=@AjFe",
                 nom: '',
                 participants: {
                     ceremonie: 0,
@@ -183,9 +182,9 @@ export default {
             }
             this.codeWasChecked = true;
         },
-        async register() {
+        async register(context) {
             if (this.form.nom) {
-                let url = 'http://localhost/mariage-resin-backend/inscription.php?secretKey=aLZ5bmeu3PpwQv5n';
+                let url = context.env.backendUrl + "/inscription.php?secretKey=" + context.env.secretKey;
                 const res = await this.$http.post(url, this.form);
                 if(res.status === 200) {
                     this.state = 1;
