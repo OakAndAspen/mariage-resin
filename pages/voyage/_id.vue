@@ -4,7 +4,7 @@
         <!-- ----- Bannière ----- -->
         <banner background="originals/voyage-2.jpg" veil="rgba(0,0,0,0.2)">
             <div class="text-center container">
-                <p class="font-display display-1 t-white" v-if="gift">{{gift.titre}}</p>
+                <p class="font-display display-1 t-white" v-if="gift">Voyage</p>
             </div>
         </banner>
 
@@ -13,13 +13,23 @@
                 <div class="card mb-4" v-if="gift">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img :src="require('~/assets/img/cut/gift-types/'+gift.type+'.jpg')"
+                            <img :src="require('~/assets/img/voyage/image-voyage_'+gift.numero+'.jpg')"
                                  class="card-img rounded-0" :alt="gift.titre">
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ gift.titre }}</h5>
-                                <p class="card-text"><small class="text-muted">{{ gift.prix }} CHF</small></p>
+                        <div class="col-md-8 d-flex">
+                            <div class="card-body align-self-center m-3">
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        Jour {{ gift.jour }}
+                                    </small>
+                                </p>
+                                <h5 class="card-title">
+                                    {{ gift.titre }}
+                                    <br/>
+                                    <span class="badge badge-secondary p-2 mt-4">
+                                        {{ gift.prix }} CHF
+                                    </span>
+                                </h5>
                             </div>
                         </div>
                     </div>
