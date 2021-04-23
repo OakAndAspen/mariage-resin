@@ -32,11 +32,11 @@ export default {
                 {
                     label: "Voyage",
                     url: "/voyage"
-                },
+                }/*,
                 {
                     label: "Galerie",
                     url: "/galerie"
-                }
+                }*/
             ]
         }
     },
