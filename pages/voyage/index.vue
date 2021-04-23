@@ -23,19 +23,29 @@
                     <p>CH005 00000 00000 00000 00000 0</p>
                 </div>
                 <div class="col-12 col-md-8">
-                    <div v-for="g of sortedGifts" class="card mb-3">
+                    <div v-for="g of formattedGifts" class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img :src="require('~/assets/img/cut/gift-types/'+g.type+'.jpg')"
-                                     class="card-img rounded-0" :alt="g.titre">
+                                <img :src="require('~/assets/img/voyage/image-voyage_' + g.numero + '.jpg')"
+                                     class="card-img rounded-0" :alt="g.parts[0].titre">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ g.titre }}</h5>
-                                    <p class="card-text"><small class="text-muted">{{ g.prix }} CHF</small></p>
-                                    <nuxt-link v-if="!g.offertPar" class="btn"
-                                               :to="{ name: 'voyage-id', params: { id: g.id }}">
-                                        Offrir
+                                    <h5 class="card-title">{{ g.parts[0].titre }}</h5>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            Jour {{ g.parts[0].jour }}
+                                        </small>
+                                    </p>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                             :style="'width: ' + g.percentage + '%'">
+                                            {{ g.percentage }} %
+                                        </div>
+                                    </div>
+                                    <nuxt-link v-if="g.percentage < 100" class="btn"
+                                               :to="{ name: 'voyage-id', params: { id: g.availableId }}">
+                                        Participer de {{ g.parts[0].prix }} CHF
                                     </nuxt-link>
                                     <button v-else class="btn" disabled>Merci !</button>
                                 </div>
@@ -66,10 +76,51 @@ export default {
         };
     },
     computed: {
-        sortedGifts() {
-            return this.gifts.sort((a, b) => {
-                let aIsAvailable = a.offertPar === null;
-                let bIsAvailable = b.offertPar === null;
+        formattedGifts() {
+            let groupedGifts = [];
+
+            // Create groups
+            this.gifts.map(g => {
+                let groupExists = false;
+                groupedGifts = groupedGifts.map(gg => {
+                    if (g.numero === gg.numero) {
+                        gg.parts.push(g);
+                        groupExists = true;
+                    }
+                    return gg;
+                });
+                if (!groupExists) {
+                    groupedGifts.push({
+                        numero: g.numero,
+                        parts: [g]
+                    });
+                }
+            });
+
+            // Calculate percentage
+            groupedGifts = groupedGifts.map(gg => {
+                gg.totalParts = 0;
+                gg.offerredParts = 0;
+                gg.parts.map(p => {
+                    gg.totalParts++;
+                    if (p.offertPar) gg.offerredParts++;
+                });
+                gg.percentage = Math.round(gg.offerredParts / gg.totalParts * 100);
+                return gg;
+            });
+
+            // Define available gift id
+            groupedGifts = groupedGifts.map(gg => {
+                gg.availableId = 0;
+                gg.parts.map(p => {
+                    if (!p.offertPar) gg.availableId = p.id;
+                });
+                return gg;
+            });
+
+            return groupedGifts.sort((a, b) => {
+                let aIsAvailable = a.percentage < 100;
+                let bIsAvailable = b.percentage < 100;
                 return (aIsAvailable === bIsAvailable) ? 0 : aIsAvailable ? -1 : 1;
             });
         }
