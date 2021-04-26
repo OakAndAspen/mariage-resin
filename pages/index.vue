@@ -38,7 +38,6 @@
                         <h2 class="t-blue">{{ p.title }}</h2>
                         <small class="text-muted">{{ p.location }}</small><br/>
                         <small class="text-muted">{{ p.time }}</small>
-                        <p class="mt-4">{{ p.description }}</p>
                     </div>
                 </div>
             </div>
@@ -74,22 +73,19 @@ export default {
                     image: "cut/program-8.jpg",
                     title: "Cérémonie",
                     location: "Eglise de St-Saphorin",
-                    time: "14h00 - 15h00",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
+                    time: "14h00 - 15h00"
                 },
                 {
                     image: "cut/program-6.jpg",
                     title: "Apéro",
                     location: "Jardin de la cure, St-Saphorin",
-                    time: "15h00 - 17h00",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
+                    time: "15h00 - 17h00"
                 },
                 {
                     image: "cut/program-1.jpg",
                     title: "Soirée",
                     location: "Colonie des Eterpaz - Broc",
-                    time: "Dès 18h00",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus."
+                    time: "Dès 18h00"
                 }
             ],
             links: [

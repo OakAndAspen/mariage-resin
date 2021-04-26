@@ -43,7 +43,7 @@
                 <div v-if="state === 1" class="text-center">
                     <h1 class="text-center mb-4">Un grand merci!</h1>
                     <p>Vous pouvez nous offrir ce cadeau en faisant un versement sur cette IBAN:</p>
-                    <p>CH005 00000 00000 00000 00000 0</p>
+                    <p>CH58 0076 8300 1554 0980 0</p>
                 </div>
         </section-wrapper>
     </div>
@@ -80,7 +80,7 @@ export default {
     },
     methods: {
         async registerGift(context) {
-            let url = context.env.backendUrl + "/voyage.php?secretKey=" + context.env.secretKey;
+            let url = process.env.backendUrl + "/voyage.php?secretKey=" + process.env.secretKey;
             let data = {
                 id: this.$route.params.id,
                 offertPar: this.form.name,

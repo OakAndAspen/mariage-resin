@@ -182,9 +182,9 @@ export default {
             }
             this.codeWasChecked = true;
         },
-        async register(context) {
+        async register() {
             if (this.form.nom) {
-                let url = context.env.backendUrl + "/inscription.php?secretKey=" + context.env.secretKey;
+                let url = process.env.backendUrl + "/inscription.php?secretKey=" + process.env.secretKey;
                 const res = await this.$http.post(url, this.form);
                 if(res.status === 200) {
                     this.state = 1;

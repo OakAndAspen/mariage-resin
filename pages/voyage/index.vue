@@ -13,14 +13,14 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <h1 class="mb-4">Aidez-nous à financer notre voyage de noce!</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Une fois que nous serons remis de nos émotions, nous avons pour projet de faire une grosse
+                        ballade dans le Nord! Si vous voulez nous aider à concrétiser ce périple, vous pouvez nous
+                        soutenir financièrement pour les différentes parties du voyage.</p>
+                    <p>Les prix sont bien sûr indicatifs, sentez-vous libres de participer comme vous l'entendez. Chaque
+                        don se verra gratifié d’une carte postale sublime/kitsch/alléchante de l’étape sponsorisée.</p>
                     <p class="font-weight-bold">Vous pouvez nous offrir notre cadeau en faisant un versement à l'IBAN
                         suivante:</p>
-                    <p>CH005 00000 00000 00000 00000 0</p>
+                    <p>CH58 0076 8300 1554 0980 0</p>
                 </div>
                 <div class="col-12 col-md-8">
                     <div v-for="g of formattedGifts" class="card mb-3">
