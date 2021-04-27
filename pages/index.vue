@@ -105,8 +105,9 @@ export default {
                     image: "voyage-2.jpg"
                 },
                 {
-                    url: "galerie",
-                    text: "Les photos du mariage",
+                    //url: "galerie",
+                    url: "",
+                    text: "Les photos du mariage (coming soon!)",
                     image: "galerie-2.jpg"
                 }
             ]

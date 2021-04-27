@@ -28,6 +28,7 @@ export default {
     ],
     modules: [
         'bootstrap-vue/nuxt',
+        'nuxt-lazy-load',
         '@nuxt/http',
         '@nuxt/content',
         ['nuxt-fontawesome', {
@@ -47,7 +48,7 @@ export default {
         }
     ],
     build: {},
-    transition: "page",
+    pageTransition: "page",
     env: {
         backendUrl: 'https://api.mariage-resin.ch',
         secretKey: 'aLZ5bmeu3PpwQv5n'

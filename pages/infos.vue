@@ -37,7 +37,6 @@ export default {
     },
     async asyncData({$content}) {
         const infos = await $content('info').fetch();
-        console.log(infos);
         return {
             infos: infos
         }

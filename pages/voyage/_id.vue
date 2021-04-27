@@ -42,7 +42,7 @@
                 </div>
                 <div v-if="state === 1" class="text-center">
                     <h1 class="text-center mb-4">Un grand merci!</h1>
-                    <p>Vous pouvez nous offrir ce cadeau en faisant un versement sur cette IBAN:</p>
+                    <p>Vous pouvez nous offrir ce cadeau en faisant un versement sur cet IBAN:</p>
                     <p>CH58 0076 8300 1554 0980 0</p>
                 </div>
         </section-wrapper>
@@ -88,7 +88,6 @@ export default {
             };
             if(data.id && data.offertPar) {
                 const res = await this.$http.post(url, data);
-                console.log(res);
                 if(res.status === 200) {
                     this.state = 1;
                 }

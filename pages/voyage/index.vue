@@ -19,7 +19,7 @@
                     <p>Les prix sont bien sûr indicatifs, sentez-vous libres de participer comme vous l'entendez. Chaque
                         don se verra gratifié d’une carte postale sublime/kitsch/alléchante de l’étape sponsorisée.</p>
                     <p class="font-weight-bold">Vous pouvez nous offrir notre cadeau en faisant un versement à l'IBAN
-                        suivante:</p>
+                        suivant:</p>
                     <p>CH58 0076 8300 1554 0980 0</p>
                 </div>
                 <div class="col-12 col-md-8">
@@ -124,6 +124,9 @@ export default {
                 return (aIsAvailable === bIsAvailable) ? 0 : aIsAvailable ? -1 : 1;
             });
         }
+    },
+    mounted() {
+        this.$nuxt.refresh();
     }
 }
 
