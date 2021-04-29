@@ -14,7 +14,7 @@
                 <div class="col-12 col-md-4">
                     <h1 class="mb-4">Aidez-nous à financer notre voyage de noce!</h1>
                     <p>Une fois que nous serons remis de nos émotions, nous avons pour projet de faire une grosse
-                        ballade dans le Nord! Si vous voulez nous aider à concrétiser ce périple, vous pouvez nous
+                        balade dans le Nord! Si vous voulez nous aider à concrétiser ce périple, vous pouvez nous
                         soutenir financièrement pour les différentes parties du voyage.</p>
                     <p>Les prix sont bien sûr indicatifs, sentez-vous libres de participer comme vous l'entendez. Chaque
                         don se verra gratifié d’une carte postale sublime/kitsch/alléchante de l’étape sponsorisée.</p>
@@ -34,7 +34,7 @@
                                     <h5 class="card-title">{{ g.parts[0].titre }}</h5>
                                     <p class="card-text">
                                         <small class="text-muted">
-                                            Jour {{ g.parts[0].jour }}
+                                            Jour {{ g.parts[0].jour }} | {{ (g.totalParts * g.parts[0].prix) }} CHF
                                         </small>
                                     </p>
                                     <div class="progress mb-4">
