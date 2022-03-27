@@ -21,10 +21,10 @@ export default {
                     label: "Accueil",
                     url: "/"
                 },
-                {
+                /*{
                     label: "Inscription",
                     url: "/inscription"
-                },
+                },*/
                 {
                     label: "Infos",
                     url: "/infos"
@@ -32,11 +32,11 @@ export default {
                 {
                     label: "Voyage",
                     url: "/voyage"
-                }/*,
+                },
                 {
                     label: "Galerie",
                     url: "/galerie"
-                }*/
+                }
             ]
         }
     },
