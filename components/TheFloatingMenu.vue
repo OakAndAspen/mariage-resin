@@ -4,7 +4,9 @@
         <div class="row h-100">
             <nav class="col-12 col-sm-7 col-md-5 ml-auto h-100 p-4 b-blue">
                 <div class="px-4 py-1 t-white text-center">
-                    <fa icon="bars" class="display-3 d-lg-none" @click="$emit('toggleNav')"/>
+                    <fa icon="bars" class="display-3 d-lg-none"
+                        style="cursor: pointer; width: 20px;"
+                        @click="$emit('toggleNav')"/>
                     <h1 class="font-display t-white my-4">Laurène & Matthieu</h1>
                     <ul class="nav flex-column mt-4">
                         <li v-for="item of menu" :key="item.url"

@@ -6,7 +6,7 @@
             <div id="ModalVeil" class="my-4 py-4">
                 <fa icon="times" class="display-4 text-white m-4"
                     @click="activeAlbum = null"
-                    style="float: right; cursor: pointer;"/>
+                    style="float: right; cursor: pointer; width: 20px;"/>
                 <v-carousel hide-delimiters v-model="carouselIndex">
                     <v-carousel-item v-for="index in albums[activeAlbum].amount"
                                      :key="index">
