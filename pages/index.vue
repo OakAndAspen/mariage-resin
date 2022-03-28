@@ -4,10 +4,8 @@
         <!-- ----- Bannière ----- -->
         <banner background="header.jpg" veil="rgba(255,255,255,0.4)">
             <div class="text-center t-dark container">
-                <p class="font-display display-3">Rejoignez-nous le</p>
-                <p class="font-display display-2">25 septembre 2021</p>
-                <p class="font-display display-3">pour célébrer notre mariage!</p>
-                <nuxt-link to="inscription" class="btn btn-lg mt-4">Inscrivez-vous ici</nuxt-link>
+                <p class="font-display display-2">Les photos du mariage sont là !</p>
+                <nuxt-link to="galerie" class="btn btn-lg mt-4">Vers la galerie</nuxt-link>
             </div>
         </banner>
 
