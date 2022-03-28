@@ -6,18 +6,15 @@
             <div id="ModalVeil" class="my-4 py-4">
                 <fa icon="times" class="display-4 text-white m-4"
                     @click="activeAlbum = null"
-                    style="float: right;"/>
-                <div class="row">
-                    <div class="col-10 col-md-8 mx-auto">
-                        <VueSlickCarousel v-bind="mainSlider">
-                            <div v-for="index of albums[activeAlbum].amount">
-                                <img :src="getPhotoSrc(albums[activeAlbum].code, index)"
-                                     :alt="albums[activeAlbum].title + ' - N°' + index"
-                                     class="mx-auto"/>
-                            </div>
-                        </VueSlickCarousel>
-                    </div>
-                </div>
+                    style="float: right; cursor: pointer;"/>
+                <v-carousel hide-delimiters v-model="carouselIndex">
+                    <v-carousel-item v-for="index in albums[activeAlbum].amount"
+                                     :key="index">
+                        <img :src="getPhotoSrc(albums[activeAlbum].code, index)"
+                             :alt="albums[activeAlbum].title + ' - N°' + index"
+                             class="mx-auto"/>
+                    </v-carousel-item>
+                </v-carousel>
             </div>
         </div>
 
@@ -34,7 +31,7 @@
             <input type="text" placeholder="CODE" v-model="passwordInput"
                    class="form-control w-auto my-4 mx-auto text-center"/>
             <button class="btn btn-info mb-4" @click="checkPassword">Vérifier</button>
-            <div class="alert alert-danger" v-if="errorMessage">{{errorMessage}}</div>
+            <div class="alert alert-danger" v-if="errorMessage">{{ errorMessage }}</div>
         </div>
 
         <!-- ----- Galerie ----- -->
@@ -53,11 +50,14 @@
             <p>
                 <i>
                     Bonjour à toutes et tous !<br/>
-                    Si l’un ou plusieurs de ces clichés vous plaisent et que vous voudriez les avoir, en haute définition et non-signées par Niko, pour les imprimer contactez-nous ! Nous vous transmettrons la marche à suivre.<br/>
+                    Si l’un ou plusieurs de ces clichés vous plaisent et que vous voudriez les avoir, en haute
+                    définition et non-signées par Niko, pour les imprimer contactez-nous ! Nous vous transmettrons la
+                    marche à suivre.<br/>
                     Encore merci à nos deux photographes, Zoé et Niko.<br/>
                     Voici leurs sites que nous vous encourageons à aller visiter !<br/><br/>
 
-                    <a target="_blank" href="https://www.zoeresinphotographe.com/">https://www.zoeresinphotographe.com/</a><br/>
+                    <a target="_blank"
+                       href="https://www.zoeresinphotographe.com/">https://www.zoeresinphotographe.com/</a><br/>
                     <a target="_blank" href="https://nikomagnus.com/">https://nikomagnus.com/</a>
                 </i>
             </p>
@@ -67,13 +67,8 @@
 
 <script>
 
-import VueSlickCarousel from 'vue-slick-carousel';
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-
 export default {
     name: "GaleriePage",
-    components: {VueSlickCarousel},
     mounted() {
         this.height = window.innerHeight;
     },
@@ -83,13 +78,7 @@ export default {
             passwordInput: "",
             errorMessage: false,
             height: "700",
-            mainSlider: {
-                infinite: true,
-                arrows: true,
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                lazyLoad: "progressive"
-            },
+            carouselIndex: 0,
             albums: [
                 {
                     title: "Mise en place",
@@ -142,11 +131,11 @@ export default {
     },
     methods: {
         checkPassword() {
-          if(this.passwordInput.toLowerCase() === "resin-photos") {
-              this.passwordAccepted = true;
-          } else {
-              this.errorMessage = "Merci de vérifier le mot de passe.";
-          }
+            if (this.passwordInput.toLowerCase() === "resin-photos") {
+                this.passwordAccepted = true;
+            } else {
+                this.errorMessage = "Merci de vérifier le mot de passe.";
+            }
         },
         showAlbum(id) {
             this.activeAlbum = id;
@@ -163,22 +152,25 @@ export default {
 <style>
 
 #GaleriePage #Modal {
-    position: absolute;
     display: block;
     z-index: 100;
-    width: 100%;
-    height: 100%;
-}
-
-#GaleriePage #Modal {
     position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#GaleriePage #Modal .slick-slider img {
-    height: 500px;
+#GaleriePage #Modal .v-carousel img {
+    max-height: 500px;
+    max-width: 100%;
+}
+
+#GaleriePage #Modal .v-carousel .v-window__next {
+    right: 0;
+}
+
+#GaleriePage #Modal .v-carousel .v-responsive__content {
+    display: flex;
 }
 
 #GaleriePage .card img {
