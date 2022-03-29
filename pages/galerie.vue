@@ -163,6 +163,7 @@ export default {
 #GaleriePage #Modal .v-carousel img {
     max-height: 500px;
     max-width: 100%;
+    object-fit: contain;
 }
 
 #GaleriePage #Modal .v-carousel .v-window__next {
